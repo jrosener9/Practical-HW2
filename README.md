@@ -37,13 +37,13 @@ In this assignment you will write a smart contract, in Solidity, for an NFT auct
                 b. End the auction  
                 c. Payout the winner  
 
-        2. **Bidder** - The bidders are competing to win the NFT. They should be able to do the following:  
+      2. **Bidder** - The bidders are competing to win the NFT. They should be able to do the following:  
                 a. Make a bid  
                 b. Up a bid if someone outbids them  
                 c. Get their funds returned if they lost the auction  
 
-        When your auction contract is deployed, it is neither open nor closed. It is in an idle state. When the auction begins, it is active. When it ends, it is closed.   
-        Open the template code and follow the instructions to implement each function.
+     When your auction contract is deployed, it is neither open nor closed. It is in an idle state. When the auction begins, it is active. When it ends, it is closed.   
+     Open the template code and follow the instructions to implement each function.
 
 
 
