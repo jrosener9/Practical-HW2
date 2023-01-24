@@ -5,7 +5,7 @@ In this assignment you will learn to program smart contracts in Solidity.
 In this assignment you will learn..
 1. The basic syntax and semantics of the Solidity language
 2. Creating an application which accepts, holds, and transfers Ethereum
-3. How fork an Ethereum network
+3. How to fork an Ethereum network
 4. Navigating Hardhat framework
 
 ### Part 1 Instructions:
@@ -14,7 +14,7 @@ In this assignment you will write a smart contract, in Solidity, for an NFT auct
 1. Install Hardhat and create a project:
     a. Overview of Hardhat and instructions here: https://hardhat.org/hardhat-runner/docs/getting-started#overview
     b. Once you’re done, you should have a placeholder Lock project with the following directory structure:
-        .... TODO: NEED A DIRECTORY STRUCTURE HERE
+        - ![Directory](https://web3-security-class.org/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F165f1ff1-d00e-4f18-b7c9-8b796c89e870%2FScreen_Shot_2022-08-31_at_11.26.24_PM.png?id=10ad4365-e8b4-4372-a5a9-0ace8c2bbb0e&table=block&spaceId=7cd12c89-e411-46e3-97a9-273e4b69dad1&width=320&userId=&cache=v2)
 
 2. Replace the `Lock` placeholder files with our HW1 files:
 `Auction.sol` and `Auction.js`
@@ -76,7 +76,7 @@ In this assignment you will write a smart contract, in Solidity, for an NFT auct
     const auction = await Auction.deploy("0x978A328Cc24C0b50a0D9F97787938E67CF09F9A9", 1);
     ```
  
-    If you check that address in the Etherscan Geoli test network, you’ll see it is our course NFT contract. So, why does Hardhat complain that the contract doesn’t exist?
+    If you check that address in the Etherscan Goerli test network, you’ll see it is our course NFT contract. So, why does Hardhat complain that the contract doesn’t exist?
 
     Hardhat has no knowledge of the Ethereum networks. The tests start with a blank slate blockchain with no contracts and only a small set of initial accounts.
 
