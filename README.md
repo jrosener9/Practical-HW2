@@ -12,9 +12,8 @@ In this assignment you will learn..
 In this assignment you will write a smart contract, in Solidity, for an NFT auction. The auction will be for the course NFT you minted in the previous homework. 
 
 1. Install Hardhat and create a project:
-    a. Overview of Hardhat and instructions here: https://hardhat.org/hardhat-runner/docs/getting-started#overview
-
-    b. Once you’re done, you should have a placeholder Lock project with the following directory structure:
+    - Overview of Hardhat and instructions here: https://hardhat.org/hardhat-runner/docs/getting-started#overview
+    - Once you’re done, you should have a placeholder Lock project with the following directory structure:
         - ![Directory](https://web3-security-class.org/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F165f1ff1-d00e-4f18-b7c9-8b796c89e870%2FScreen_Shot_2022-08-31_at_11.26.24_PM.png?id=10ad4365-e8b4-4372-a5a9-0ace8c2bbb0e&table=block&spaceId=7cd12c89-e411-46e3-97a9-273e4b69dad1&width=320&userId=&cache=v2)
 
 2. Replace the `Lock` placeholder files with our HW1 files:
