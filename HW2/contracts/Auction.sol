@@ -48,22 +48,25 @@ contract Auction {
         _;
     }
 
-    function startAuction() public /* MODIFIER(S) */ {
+    function startAuction() public onlyOwner() {
         /* 
             Start the auction by setting the startTime variable
             Permissions - only the owner should be allowed to start the auction.
          */
 
+         startTime = block.timestamp;
     }
 
-    function endAuction() public /* MODIFIER(S) */ {
+    function endAuction() public isActive() onlyOwner() {
         /* 
             End the auction by setting the startTime variable
             Permissions - only the owner should be allowed to end the auction.
          */
+
+         endTime = block.timestamp;
     }
 
-    function makeBid() public payable /* MODIFIER(S) */ {
+    function makeBid() public payable isActive() {
         /* 
             Only allow the bid to go through if it is higher than the current highest bid and the bidder has not yet bid.
             Set the highestBidder, and highestBid variables accordingly.
@@ -71,9 +74,16 @@ contract Auction {
             Update the fundsPerBidder map.
          */
 
+         //check conditions
+         require(msg.value > highestBid && fundsPerBidder[msg.sender] == 0, "Bid not higher than highest bid!");
+
+         //update state
+         fundsPerBidder[msg.sender] = msg.value;
+         highestBidder = payable(msg.sender);
+         highestBid = msg.value;
     }
 
-    function upBid() public payable /* MODIFIERS(S) */ {
+    function upBid() public payable isActive() {
         /* 
             upBid will update the bidder's bid to their current bid + the msg.value being added.
             Only allow the upBid to go through if their new bid price is higher than the current bid and they have already bid. 
@@ -84,9 +94,15 @@ contract Auction {
 
         */
 
+        uint newBid = msg.value + fundsPerBidder[msg.sender];
+        require(newBid > highestBid && fundsPerBidder[msg.sender] != 0, "Invalid up bid!");
+
+        fundsPerBidder[msg.sender] = newBid;
+        highestBidder = payable(msg.sender);
+        highestBid = newBid;
     }
 
-    function refund() public /* MODIFIER(S) */ {
+    function refund() public isClosed() {
         /* 
             For the refunds, the loser will individually call this function.
             Refunds won't be made to all losers in a batch. You will see in Part 3 why that is a bad design pattern.
@@ -101,9 +117,14 @@ contract Auction {
             Hint 2: Use the solidity transfer function to send the funds. 
         */
 
+        require(msg.sender != highestBidder, "Winner of auction cannot refund!");
+
+        payable(msg.sender).transfer(fundsPerBidder[msg.sender]);
+        fundsPerBidder[msg.sender] = 0;
+
     }
 
-    function payoutWinner() public /* MODIFIER(S) */ {
+    function payoutWinner() public isClosed() {
         fundsPerBidder[highestBidder] = 0;
         nft.enterAddressIntoBook("auction");
         nft.mintNFT();
