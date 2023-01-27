@@ -1,0 +1,26 @@
+{
+  "name": "practical-hw2",
+  "version": "1.0.0",
+  "description": "In this assignment you will learn to program smart contracts in Solidity. ### Learning Goals: In this assignment you will learn.. 1. The basic syntax and semantics of the Solidity language 2. Creating an application which accepts, holds, and transfers Ethereum 3. How to fork an Ethereum network 4. Navigating Hardhat framework",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrosener9/Practical-HW2.git"
+  },
+  "author": "Jack Rosener",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jrosener9/Practical-HW2/issues"
+  },
+  "homepage": "https://github.com/jrosener9/Practical-HW2#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.1",
+    "hardhat": "^2.12.6"
+  }
+}
