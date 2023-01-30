@@ -124,7 +124,7 @@ contract Auction {
 
     }
 
-    function payoutWinner() public isClosed() {
+    function payoutWinner() public onlyOwner() isClosed() {
         fundsPerBidder[highestBidder] = 0;
         nft.enterAddressIntoBook("auction");
         nft.mintNFT();
